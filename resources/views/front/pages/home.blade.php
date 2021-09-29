@@ -1,4 +1,4 @@
-@extends('template.template')
+@extends('front.template.template')
 <main id="main">
 
 
