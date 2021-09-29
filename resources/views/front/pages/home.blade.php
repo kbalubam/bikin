@@ -1,4 +1,4 @@
-@extends('front.template.template')
+@extends('front.template.main')
 <main id="main">
 
 
@@ -8,6 +8,7 @@
     @include('front.partials.Features')
     @include('front.partials.Services')
     @include('front.partials.Portfolio')
+    @include('front.partials.Testimonial')
     @include('front.partials.Team')
     @include('front.partials.Contact')
     @include('front.partials.Footer')
