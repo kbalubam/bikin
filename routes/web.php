@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('front.pages.home');
-});
+
+
+Route::get('/', [HomeController::class,'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
