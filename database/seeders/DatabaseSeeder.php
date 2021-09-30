@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +15,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+<<<<<<< HEAD
+        $this->call([
+            RoleSeeder::class,
+            NavbarSeeder::class,
+            PortfolioSeeder::class,
+            ServicesSeeder::class,
+            TeamSeeder::class,
+            TestimonialSeeder::class,
+            UserSeeder::class
+        ]);
+
+=======
 
         $this->call([
             TitreSeeder::class,
@@ -29,5 +42,6 @@ class DatabaseSeeder extends Seeder
             SoustitreFootrSeeder::class,
             infofooterSeeder::class,
         ]);
+>>>>>>> fdcf633d356bbf4251fca44787f9b115e8e3bc25
     }
 }
