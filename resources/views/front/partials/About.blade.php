@@ -5,9 +5,9 @@
           <div class="row no-gutters">
             <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-right">
               <div class="content">
-                <h3>Voluptatem dignissimos provident quasi</h3>
+                <h3>{{$titreAbout->titre}}</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                  {{$titreAbout->sousTitre}}
                 </p>
                 <a href="#" class="about-btn">About us <i class="bx bx-chevron-right"></i></a>
               </div>
