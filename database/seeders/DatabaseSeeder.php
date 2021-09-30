@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             NewsletterinfoSeeder::class,
             SoustitreFootrSeeder::class,
             infofooterSeeder::class,
+            HeroSeeder::class,
         ]);
     }
 }

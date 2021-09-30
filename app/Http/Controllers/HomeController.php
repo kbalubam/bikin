@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Adressfooter;
 use App\Models\Contact;
 use App\Models\Feature;
+use App\Models\Hero;
 use App\Models\Infosfooter;
 use App\Models\Linksocial;
 use App\Models\Newsletterinfo;
@@ -40,6 +41,7 @@ class HomeController extends Controller
         $linksocials = Linksocial::all();
         $adressfooters = Adressfooter::all();
         $newsletterinfo = Newsletterinfo::all();
-        return view('front.pages.home',compact('titreHero','titreAbout','titreFeatures','titreServices','titrePortfolio','titreTestimonials','titreTeam','titreContact', 'abouts','contacts','features','serviceslinks','usefullinks','st1footer','st2footer','st3footer','infosfooter','linksocials','titreBikin','newsletterinfo','adressfooters'));
+        $heroes = Hero::all();
+        return view('front.pages.home',compact('titreHero','titreAbout','titreFeatures','titreServices','titrePortfolio','titreTestimonials','titreTeam','titreContact', 'abouts','contacts','features','serviceslinks','usefullinks','st1footer','st2footer','st3footer','infosfooter','linksocials','titreBikin','newsletterinfo','adressfooters','heroes'));
     }
 }
