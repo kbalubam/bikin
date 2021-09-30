@@ -12,28 +12,35 @@
             <div class="col-lg-6">
 
               <div class="row">
-                <div class="col-md-12">
-                  <div class="info-box">
-                    <i class="bx bx-map"></i>
-                    <h3>Our Address</h3>
-                    <p>A108 Adam Street, New York, NY 535022</p>
+                @foreach ($contacts as $contact )
+                  @if ($contact->id ===1)
+                  <div class="col-md-12">
+                    <div class="info-box">
+                      <i class="bx {{$contact->icon->name}}"></i>
+                      <h3>{{$contact->titre}}</h3>
+                      <p>{{$contact->sousTitre}}</p>
+                    </div>
                   </div>
-                </div>
+                    
+                @else
+
                 <div class="col-md-6">
                   <div class="info-box mt-4">
-                    <i class="bx bx-envelope"></i>
-                    <h3>Email Us</h3>
-                    <p>info@example.com<br>contact@example.com</p>
+                    <i class="bx {{$contact->icon->name}}"></i>
+                    <h3>{{$contact->titre}}</h3>
+                    <p>{{$contact->sousTitre}}<br>{{$contact->infos}}</p>
                   </div>
                 </div>
-                <div class="col-md-6">
+                  @endif
+                @endforeach
+                {{-- <div class="col-md-6">
                   <div class="info-box mt-4">
                     <i class="bx bx-phone-call"></i>
                     <h3>Call Us</h3>
                     <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
                   </div>
                 </div>
-              </div>
+              </div> --}}
 
             </div>
 

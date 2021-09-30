@@ -15,6 +15,9 @@ class CreateFootersTable extends Migration
     {
         Schema::create('footers', function (Blueprint $table) {
             $table->id();
+            $table->string('titreNewsletter');
+            $table->string('descriptionNewsletter');
+            $table->foreignId('icon_id')->constrained('icons','id');
             $table->timestamps();
         });
     }

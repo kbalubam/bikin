@@ -4,15 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class Contact extends Model
+use App\Models\Icon;
+class Linksocial extends Model
 {
     use HasFactory;
-    protected $table = 'contacts';
+    protected $table= "linksocials";
+    protected $fillable= ["name","link"];
 
-    protected $fillable = ['titre','sousTitre','infos','icon_id'];
 
     public function icon(){
-        return $this->belongsTo(Icon::class);
+       
+        return $this->hasOne(Icon::class);
     }
 }

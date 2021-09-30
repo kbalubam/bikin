@@ -6,44 +6,54 @@
             <h2>{{$titreFeatures->titre}}</h2>
             <p>{{$titreFeatures->sousTitre}}</p>
           </div>
+@foreach ($features as $feature )
+  
+<div class="row content">
+  <div class="col-md-5" data-aos="fade-right" data-aos-delay="100">
+    <img src="{{asset('img/'.$feature->img1)}}" class="img-fluid" alt="">
+  </div>
+  <div class="col-md-7 pt-4" data-aos="fade-left" data-aos-delay="100">
+    <h3>{{$feature->titre1}}</h3>
+    <p class="fst-italic">
+    {{$feature->sousTitre1}}
+    </p>
+    <ul>
+      <li><i class="bi bi-check"></i> {{$feature->li1}}</li>
+      <li><i class="bi bi-check"></i> {{$feature->li2}}</li>
+      <li><i class="bi bi-check"></i> {{$feature->li3}}</li>
+    </ul>
+  </div>
+</div>
 
           <div class="row content">
-            <div class="col-md-5" data-aos="fade-right" data-aos-delay="100">
-              <img src="{{asset('img/features-1.png')}}" class="img-fluid" alt="">
-            </div>
-            <div class="col-md-7 pt-4" data-aos="fade-left" data-aos-delay="100">
-              <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-              <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </p>
-              <ul>
-                <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check"></i> Ullam est qui quos consequatur eos accusamus.</li>
-              </ul>
-            </div>
-          </div>
+            @if ($feature->id%2===0)
+              
+            <div class="col-md-5 order-1 order-md-2" data-aos="fade-right">
+              @else
+              <div class="col-md-5 order-1 order-md-2" data-aos="fade-left">
 
-          <div class="row content">
-            <div class="col-md-5 order-1 order-md-2" data-aos="fade-left">
-              <img src="{{asset('img/features-2.png')}}" class="img-fluid" alt="">
+            @endif
+              <img src="{{asset('img/'.$feature->img2)}}" class="img-fluid" alt="">
             </div>
+            @if ($feature->id%2===0)
+              
+            <div class="col-md-7 pt-5 order-2 order-md-1" data-aos="fade-left">
+            @else
+              
             <div class="col-md-7 pt-5 order-2 order-md-1" data-aos="fade-right">
-              <h3>Corporis temporibus maiores provident</h3>
+            @endif
+              <h3>{{$feature->titre2}}</h3>
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+               {{$feature->sousTitre2}}
               </p>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum
+                {{$feature->description}}
               </p>
             </div>
           </div>
+@endforeach
 
-          <div class="row content">
+          {{-- <div class="row content">
             <div class="col-md-5" data-aos="fade-right">
               <img src="{{asset('img/features-3.png')}}" class="img-fluid" alt="">
             </div>
@@ -74,7 +84,7 @@
                 culpa qui officia deserunt mollit anim id est laborum
               </p>
             </div>
-          </div>
+          </div> --}}
 
         </div>
       </section><!-- End Features Section -->

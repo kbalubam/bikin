@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class,'index']);
-
+Route::resource('back/abouts', AboutController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

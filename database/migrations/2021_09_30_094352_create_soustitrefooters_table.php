@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTitresTable extends Migration
+class CreateSoustitrefootersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateTitresTable extends Migration
      */
     public function up()
     {
-        Schema::create('titres', function (Blueprint $table) {
+        Schema::create('soustitrefooters', function (Blueprint $table) {
             $table->id();
-            $table->string('titre');
-            $table->string('sousTitre')->nullable();
+            $table->string('intitule');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateTitresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('titres');
+        Schema::dropIfExists('soustitrefooters');
     }
 }

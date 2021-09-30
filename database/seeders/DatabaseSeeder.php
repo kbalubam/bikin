@@ -17,6 +17,17 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             TitreSeeder::class,
+            AboutSeeder::class,
+            LinksocialSeeder::class,
+            IconSeeder::class,
+            ContactSeeder::class,
+            FeatureSeeder::class,
+            AdressfooterSeeder::class,
+            UsefullinkfooterSeeder::class,
+            ServiceslinkfooterSeeder::class,
+            NewsletterinfoSeeder::class,
+            SoustitreFootrSeeder::class,
+            infofooterSeeder::class,
         ]);
     }
 }
