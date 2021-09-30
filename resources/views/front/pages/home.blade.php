@@ -11,6 +11,6 @@
     @include('front.partials.Testimonial')
     @include('front.partials.Team')
     @include('front.partials.Contact')
-    @include('front.partials.Footer')
+    
 </main><!-- End #main -->
 @include('front.partials.Footer')
