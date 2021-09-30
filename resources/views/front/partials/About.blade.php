@@ -23,21 +23,7 @@
                     <p>{{$about->descriptionSec}}</p>
                   </div>
                   @endforeach
-                  {{-- <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris nisi</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                  </div>
-                  <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                    <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                  </div>
-                  <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-                    <i class="bx bx-shield"></i>
-                    <h4>Beatae veritatis</h4>
-                    <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-                  </div> --}}
+
                 </div>
               </div><!-- End .content-->
             </div>

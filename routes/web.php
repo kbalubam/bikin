@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class,'index']);
+Route::get('/back',function(){
+    return view('back.pages.home');
+})->name('back');
 Route::resource('back/abouts', AboutController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
