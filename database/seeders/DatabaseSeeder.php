@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-<<<<<<< HEAD
         $this->call([
             RoleSeeder::class,
             NavbarSeeder::class,
@@ -23,12 +22,7 @@ class DatabaseSeeder extends Seeder
             ServicesSeeder::class,
             TeamSeeder::class,
             TestimonialSeeder::class,
-            UserSeeder::class
-        ]);
-
-=======
-
-        $this->call([
+            UserSeeder::class,
             TitreSeeder::class,
             AboutSeeder::class,
             LinksocialSeeder::class,
@@ -42,6 +36,5 @@ class DatabaseSeeder extends Seeder
             SoustitreFootrSeeder::class,
             infofooterSeeder::class,
         ]);
->>>>>>> fdcf633d356bbf4251fca44787f9b115e8e3bc25
     }
 }

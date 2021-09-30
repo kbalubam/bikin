@@ -23,15 +23,15 @@ class ContactSeeder extends Seeder
 
             ],
             [
-                "titre"=>"",
-                "sousTitre"=>"",
-                "infos"=>null,
+                "titre"=>"Email Us",
+                "sousTitre"=>"info@example.com",
+                "infos"=>"contact@example.com",
                 "icon_id"=>2
             ],
             [
-                "titre"=>"",
-                "sousTitre"=>"",
-                "infos"=>null,
+                "titre"=>"Call Us",
+                "sousTitre"=>"+1 5589 55488 55",
+                "infos"=>"+1 6678 254445 41",
                 "icon_id"=>3
 
             ],
