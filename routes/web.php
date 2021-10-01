@@ -3,6 +3,8 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NavbarController;
+use App\Http\Controllers\TitreController;
+use App\Models\About;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +21,19 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class,'index']);
-Route::resource('/navbars', NavbarController::class);
-Route::resource('/portfolios', NavbarController::class);
-Route::resource('/services', NavbarController::class);
-Route::resource('/teams', NavbarController::class);
-Route::resource('/testimonials', NavbarController::class);
+Route::resource('/back/navbars', NavbarController::class);
+Route::resource('/back/portfolios', NavbarController::class);
+Route::resource('/back/services', NavbarController::class);
+Route::resource('/back/teams', NavbarController::class);
+Route::resource('/back/testimonials', NavbarController::class);
+Route::resource('/back/abouts', AboutController::class);
+Route::resource('/back/titres', TitreController::class);
 
 
-
+Route::get('/back/sectionsAbout',function(){
+    $abouts = About::all();
+    return view('back.about.allSectionAbout',compact('abouts'));
+})->name('sectionsAbout');
 
 
 

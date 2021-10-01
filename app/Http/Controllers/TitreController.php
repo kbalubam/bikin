@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hero;
+use App\Models\Titre;
 use Illuminate\Http\Request;
 
-class HeroController extends Controller
+class TitreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class HeroController extends Controller
      */
     public function index()
     {
-        return view('back.footer.allFooter');
-        
+        //
     }
 
     /**
@@ -42,21 +41,21 @@ class HeroController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Hero  $hero
+     * @param  \App\Models\Titre  $titre
      * @return \Illuminate\Http\Response
      */
-    public function show(Hero $hero)
+    public function show(Titre $titre)
     {
-        //
+        return view('back.titre.show',compact('titre'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Hero  $hero
+     * @param  \App\Models\Titre  $titre
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hero $hero)
+    public function edit(Titre $titre)
     {
         //
     }
@@ -65,10 +64,10 @@ class HeroController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Hero  $hero
+     * @param  \App\Models\Titre  $titre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hero $hero)
+    public function update(Request $request, Titre $titre)
     {
         //
     }
@@ -76,10 +75,10 @@ class HeroController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Hero  $hero
+     * @param  \App\Models\Titre  $titre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hero $hero)
+    public function destroy(Titre $titre)
     {
         //
     }

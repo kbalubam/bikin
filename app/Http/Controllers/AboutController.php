@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Titre;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -15,8 +16,8 @@ class AboutController extends Controller
     public function index()
     {
         $abouts = About::all();
-
-        return view('');
+        $titreAbout = Titre::find(2);
+        return view('back.about.allAbout',compact('abouts','titreAbout'));
     }
 
     /**
