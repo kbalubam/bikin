@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NavbarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,17 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class,'index']);
+Route::resource('/navbars', NavbarController::class);
+Route::resource('/portfolios', NavbarController::class);
+Route::resource('/services', NavbarController::class);
+Route::resource('/teams', NavbarController::class);
+Route::resource('/testimonials', NavbarController::class);
+
+
+
+
+
+
 Route::get('/back',function(){
     return view('back.pages.home');
 })->name('back');

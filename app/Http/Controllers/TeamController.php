@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
@@ -57,7 +58,8 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        //
+    $allTeam = Team::all();
+    return view('back.team.allTeam',compact('allTeam'));
     }
 
     /**
@@ -69,7 +71,18 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        //
+        $request->validate([
+            "image"=>['required'],
+            "nom"=>['required'],
+            "poste"=>['required'],
+        ]);
+
+        Storage::disk('public')->delete('img/'.$team->image);
+        $team->nom = $request->nom;
+        $team->poste = $request->poste;
+        $request->file('image')->storePublicly('img', 'public');
+        $team->save();
+        return redirect()->route('teams.index');
     }
 
     /**
@@ -80,6 +93,7 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
-        //
+        $team->delete();
+        return redirect()->route('teams.index');
     }
 }

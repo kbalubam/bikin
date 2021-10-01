@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Navbar;
+use App\Models\Portfolio;
+use App\Models\Team;
+use App\Models\Testimonial;
 use App\Models\About;
 use App\Models\Adressfooter;
 use App\Models\Contact;
@@ -26,13 +30,14 @@ class HomeController extends Controller
         $titrePortfolio = Titre::find(5);
         $titreTestimonials = Titre::find(6);
         $titreTeam = Titre::find(7);
+        $titreContact = Titre::find(8);
 
-        $titreContact = Titre::find(8);      
-        $titreBikin = Titre::find(9);      
+        $titreContact = Titre::find(8);
+        $titreBikin = Titre::find(9);
         $abouts = About::all();
         $contacts = Contact::all();
         $features = Feature::all();
-        $serviceslinks = Serviceslinkfooter::all(); 
+        $serviceslinks = Serviceslinkfooter::all();
         $usefullinks = Usefullinkfooter::all();
         $st1footer = Soustitrefooter::find(1);
         $st2footer = Soustitrefooter::find(2);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Navbar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NavbarController extends Controller
 {
@@ -13,8 +14,8 @@ class NavbarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   $allNav = Navbar::all();
+        return view('back.navbar.allNavbar', compact('allNav'));
     }
 
     /**
@@ -24,7 +25,6 @@ class NavbarController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -57,7 +57,7 @@ class NavbarController extends Controller
      */
     public function edit(Navbar $navbar)
     {
-        //
+        return view('back.navbar.edit', compact("navbar"));
     }
 
     /**
@@ -69,7 +69,17 @@ class NavbarController extends Controller
      */
     public function update(Request $request, Navbar $navbar)
     {
-        //
+
+
+        $request->validate([
+            "lien"=>['required'],
+        ]);
+
+        $navbar->lien = $request->lien;
+
+        $navbar->save();
+        return redirect()->route('navbars.index');
+
     }
 
     /**
@@ -80,6 +90,7 @@ class NavbarController extends Controller
      */
     public function destroy(Navbar $navbar)
     {
-        //
+        $navbar->delete();
+        return redirect()->route('navbars.index');
     }
 }
