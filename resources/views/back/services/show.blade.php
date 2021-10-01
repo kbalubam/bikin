@@ -10,8 +10,8 @@
             @csrf
                 <button type="button" class="btn btn-danger">DELETE</button>
           </form>
-          <a href="">
-                <button type="button" class="btn btn-danger">BACK</button>
+        <a href="{{route('services.index')}}">
+                <button type="button" class="btn btn-warning">BACK</button>
           </a>
 
         </div>
