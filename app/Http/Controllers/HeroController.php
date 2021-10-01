@@ -14,7 +14,8 @@ class HeroController extends Controller
      */
     public function index()
     {
-        //
+        return view('back.footer.allFooter');
+        
     }
 
     /**
