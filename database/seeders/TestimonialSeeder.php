@@ -16,27 +16,27 @@ class TestimonialSeeder extends Seeder
     {
         DB::table('testimonials')->insert([
             ["description" => "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.",
-            "image" => "asset('img/testimonials/testimonials-2.jpg')",
+            "image" => "testimonials/testimonials-2.jpg",
             "nom" => "Saul Goodman",
             "poste" => "Ceo & Founder"
             ],
             ["description" => "Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.",
-            "image" => "asset('img/testimonials/testimonials-2.jpg')",
+            "image" => "testimonials/testimonials-2.jpg",
             "nom" => "Sara Wilsson",
             "poste" => "Designer"
             ],
             ["description" => "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.",
-            "image" => "asset('img/testimonials/testimonials-3.jpg')",
+            "image" => "testimonials/testimonials-3.jpg",
             "nom" => "Jena Karlis",
             "poste" => "Store Owner"
             ],
             ["description" => "Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.",
-            "image" => "asset('img/testimonials/testimonials-4.jpg')",
+            "image" => "testimonials/testimonials-4.jpg",
             "nom" => "Matt Brandon",
             "poste" => "Freelancer"
             ],
             ["description" => "Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.",
-            "image" => "asset('img/testimonials/testimonials-5.jpg')",
+            "image" => "testimonials/testimonials-5.jpg",
             "nom" => "John Larson",
             "poste" => "Entrepreneur"
             ],

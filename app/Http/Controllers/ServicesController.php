@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Services;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServicesController extends Controller
 {
@@ -13,8 +14,8 @@ class ServicesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   $allServ = Services::all();
+        return view('back.services.allServices',compact('allServ'));
     }
 
     /**
@@ -57,7 +58,7 @@ class ServicesController extends Controller
      */
     public function edit(Services $services)
     {
-        //
+        return view('back.services.edit', compact('services'));
     }
 
     /**
@@ -69,7 +70,14 @@ class ServicesController extends Controller
      */
     public function update(Request $request, Services $services)
     {
-        //
+        $request->validate([
+            "soustitre"=>['required'],
+            "description"=>['required'],
+        ]);
+        $services->soustitre = $request->soustitre;
+        $services->description = $request->description;
+        $services->save();
+        return redirect()->route('services.index');
     }
 
     /**
@@ -80,6 +88,7 @@ class ServicesController extends Controller
      */
     public function destroy(Services $services)
     {
-        //
+        $services->delete();
+        return redirect()->route('services.index');
     }
 }

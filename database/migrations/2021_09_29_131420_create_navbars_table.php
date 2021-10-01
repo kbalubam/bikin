@@ -15,14 +15,7 @@ class CreateNavbarsTable extends Migration
     {
         Schema::create('navbars', function (Blueprint $table) {
             $table->id();
-            $table->string('titre');
-            $table->string('lien1');
-            $table->string('lien2');
-            $table->string('lien3');
-            $table->string('lien4');
-            $table->string('lien5');
-            $table->string('lien6');
-            $table->string('lien7');
+            $table->string('lien');
             $table->timestamps();
         });
     }

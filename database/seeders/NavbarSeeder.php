@@ -16,18 +16,27 @@ class NavbarSeeder extends Seeder
     {
         DB::table('navbars')->insert([
             [
-                "titre" => "Bikin",
-                "lien1" => "Home",
-                "lien2" => "About",
-                "lien3" => "Services",
-                "lien4" => "Portfolio",
-                "lien5" => "Team",
-                "lien6" => "Contact",
-                "lien7" => "Get Started",
+                "lien" => "Home",
+            ],
+            [
+                "lien" => "About",
+            ],
+            [
+                "lien" => "Services",
+            ],
+            [
+                "lien" => "Portfolio",
+            ],
+            [
+                "lien" => "Team",
+            ],
+            [
+                "lien" => "Contact",
+            ],
+            [
+                "lien" => "Get Started",
+            ],
 
-
-
-            ]
         ]);
     }
 }

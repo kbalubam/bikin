@@ -14,7 +14,8 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        //
+        $allTesti = Testimonial::all();
+        return view('back.team.allTeam', compact('allTesti'));
     }
 
     /**
@@ -35,7 +36,7 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -57,7 +58,7 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
-        //
+        return view('back.team.edit', compact('testimonial'));
     }
 
     /**
@@ -69,7 +70,19 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, Testimonial $testimonial)
     {
-        //
+        $request->validate([
+            "description"=>['required'],
+            "image"=>['required'],
+            "nom"=>['required'],
+            "poste"=>['required'],
+        ]);
+        $testimonial->nom = $request->description;
+        $testimonial->poste = $request->image;
+        $testimonial->poste = $request->nom;
+        $testimonial->poste = $request->poste;
+        $testimonial->save();
+        return redirect()->route('teams.index');
+
     }
 
     /**
@@ -80,6 +93,7 @@ class TestimonialController extends Controller
      */
     public function destroy(Testimonial $testimonial)
     {
-        //
+        $testimonial->delete();
+        return redirect()->route('teams.index');
     }
 }

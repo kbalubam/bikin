@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+use App\Models\Navbar;
+use App\Models\Portfolio;
+use App\Models\Team;
+use App\Models\Testimonial;
+=======
 use App\Models\About;
 use App\Models\Adressfooter;
 use App\Models\Contact;
@@ -12,6 +18,7 @@ use App\Models\Linksocial;
 use App\Models\Newsletterinfo;
 use App\Models\Serviceslinkfooter;
 use App\Models\Soustitrefooter;
+>>>>>>> 7dc6827c0f1886011edd6d021e2550d39cacb99e
 use App\Models\Titre;
 use App\Models\Usefullinkfooter;
 use Illuminate\Http\Request;
@@ -26,6 +33,10 @@ class HomeController extends Controller
         $titrePortfolio = Titre::find(5);
         $titreTestimonials = Titre::find(6);
         $titreTeam = Titre::find(7);
+<<<<<<< HEAD
+        $titreContact = Titre::find(8);
+       return view('front.pages.home',compact('titreHero','titreAbout','titreFeatures','titreServices','titrePortfolio','titreTestimonials','titreTeam','titreContact'));
+=======
 
         $titreContact = Titre::find(8);      
         $titreBikin = Titre::find(9);      
@@ -43,5 +54,6 @@ class HomeController extends Controller
         $newsletterinfo = Newsletterinfo::all();
         $heroes = Hero::all();
         return view('front.pages.home',compact('titreHero','titreAbout','titreFeatures','titreServices','titrePortfolio','titreTestimonials','titreTeam','titreContact', 'abouts','contacts','features','serviceslinks','usefullinks','st1footer','st2footer','st3footer','infosfooter','linksocials','titreBikin','newsletterinfo','adressfooters','heroes'));
+>>>>>>> 7dc6827c0f1886011edd6d021e2550d39cacb99e
     }
 }
