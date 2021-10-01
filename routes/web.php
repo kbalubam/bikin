@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class,'index']);
-<<<<<<< HEAD
 Route::resource('/navbars', NavbarController::class);
 Route::resource('/portfolios', NavbarController::class);
 Route::resource('/services', NavbarController::class);
@@ -31,12 +30,10 @@ Route::resource('/testimonials', NavbarController::class);
 
 
 
-=======
 Route::get('/back',function(){
     return view('back.pages.home');
 })->name('back');
 Route::resource('back/abouts', AboutController::class);
->>>>>>> 7dc6827c0f1886011edd6d021e2550d39cacb99e
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

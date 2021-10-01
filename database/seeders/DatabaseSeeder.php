@@ -23,13 +23,6 @@ class DatabaseSeeder extends Seeder
             TeamSeeder::class,
             TestimonialSeeder::class,
             UserSeeder::class,
-<<<<<<< HEAD
-            TitreSeeder::class
-        ]);
-
-
-
-=======
             TitreSeeder::class,
             AboutSeeder::class,
             LinksocialSeeder::class,
@@ -44,6 +37,5 @@ class DatabaseSeeder extends Seeder
             infofooterSeeder::class,
             HeroSeeder::class,
         ]);
->>>>>>> 7dc6827c0f1886011edd6d021e2550d39cacb99e
     }
 }
