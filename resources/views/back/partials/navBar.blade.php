@@ -6,11 +6,11 @@
     </div>
     <ul class="nav-list ">
         <li>
-            <a href="#" class="text-light">
+            <a href="{{route('abouts.index')}}" class="text-light">
                 <i class='bx bx-question-mark'></i>
-                <span class="links_name">Article</span>
+                <span class="links_name">About</span>
             </a>
-            <span class="tooltip">Article</span>
+            <span class="tooltip">About</span>
         </li>
 
         <li>
