@@ -14,6 +14,7 @@ use App\Models\Hero;
 use App\Models\Infosfooter;
 use App\Models\Linksocial;
 use App\Models\Newsletterinfo;
+use App\Models\Services;
 use App\Models\Serviceslinkfooter;
 use App\Models\Soustitrefooter;
 use App\Models\Titre;
@@ -47,6 +48,14 @@ class HomeController extends Controller
         $adressfooters = Adressfooter::all();
         $newsletterinfo = Newsletterinfo::all();
         $heroes = Hero::all();
-        return view('front.pages.home',compact('titreHero','titreAbout','titreFeatures','titreServices','titrePortfolio','titreTestimonials','titreTeam','titreContact', 'abouts','contacts','features','serviceslinks','usefullinks','st1footer','st2footer','st3footer','infosfooter','linksocials','titreBikin','newsletterinfo','adressfooters','heroes'));
+        $navbar = Navbar::all();
+        $service = Services::all();
+        $portfolio = Portfolio::all();
+        $team = Team::all();
+        $testi = Testimonial::all();
+
+
+
+        return view('front.pages.home',compact('titreHero','titreAbout','titreFeatures','titreServices','titrePortfolio','titreTestimonials','titreTeam','titreContact', 'abouts','contacts','features','serviceslinks','usefullinks','st1footer','st2footer','st3footer','infosfooter','linksocials','titreBikin','newsletterinfo','adressfooters','heroes', 'navbar', 'portfolio', 'service', 'team', 'testi'));
     }
 }

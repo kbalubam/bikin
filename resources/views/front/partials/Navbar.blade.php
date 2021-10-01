@@ -8,18 +8,21 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+            @foreach ($navbar as $nav )
+            @if ($nav->id === 1)
+
+            <li><a class="nav-link scrollto active" href="#{{$nav->lien}}">{{$nav->lien}}</a></li>
+            @else
+
+        <li><a class="nav-link scrollto" href="#{{$nav->lien}}">{{$nav->lien}}</a></li>
+        @endif
+        @endforeach
+
         @if (Route::has('login'))
             @auth
                 <li >
                   <a class="nav-link scrollto text-decoration-underline" href="{{ route('back') }}" >Dashboard</a>
-              </li> 
+              </li>
             <li >
               <form class="m-0" action="{{ route('logout') }}" method="post" id="form">
               @csrf
@@ -37,7 +40,7 @@
                 <li >
                   <a class="nav-link scrollto text-decoration-underline" href="{{ route('register') }}" >Register</a>
                 </li>
-                    
+
                 @endif
             @endauth
          @endif

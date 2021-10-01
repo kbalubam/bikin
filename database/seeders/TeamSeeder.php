@@ -15,7 +15,7 @@ class TeamSeeder extends Seeder
     public function run()
     {
         DB::table('teams')->insert([
-            ["image" =>"team/team-1.jpg'",
+            ["image" =>"team/team-1.jpg",
              "nom" => "Walter White",
              "poste" => "Chief Executive Officer"
             ],

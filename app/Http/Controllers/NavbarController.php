@@ -46,7 +46,7 @@ class NavbarController extends Controller
      */
     public function show(Navbar $navbar)
     {
-        //
+        return view('back.navbar.show', compact('navbar'));
     }
 
     /**
