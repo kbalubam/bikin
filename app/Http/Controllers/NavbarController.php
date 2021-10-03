@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Navbar;
+use App\Models\Titre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,8 +15,11 @@ class NavbarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $allNav = Navbar::all();
-        return view('back.navbar.allNavbar', compact('allNav'));
+    {   
+        $titreBikin = Titre::find(9);
+        
+        $navbars = Navbar::all();
+        return view('back.navbar.allNavbar', compact('navbars','titreBikin'));
     }
 
     /**

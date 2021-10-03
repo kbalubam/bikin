@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hero;
+use App\Models\Titre;
 use Illuminate\Http\Request;
 
 class HeroController extends Controller
@@ -14,7 +15,12 @@ class HeroController extends Controller
      */
     public function index()
     {
-        return view('back.footer.allFooter');
+        
+        $titreHero = Titre::find(1);
+
+        $heroes = Hero::all();
+
+        return view('back.hero.allHero',compact('titreHero','heroes'));
         
     }
 

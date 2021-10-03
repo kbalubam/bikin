@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Services;
+use App\Models\Titre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,8 +15,10 @@ class ServicesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $allServ = Services::all();
-        return view('back.services.allServices',compact('allServ'));
+    {  
+        $titreServices = Titre::find(4);
+         $service = Services::all();
+        return view('back.services.allService',compact('service','titreServices'));
     }
 
     /**
