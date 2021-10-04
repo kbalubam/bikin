@@ -61,7 +61,7 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
-        return view('back.team.edit', compact('testimonial'));
+        return view('back.testimonial.edit', compact('testimonial'));
     }
 
     /**

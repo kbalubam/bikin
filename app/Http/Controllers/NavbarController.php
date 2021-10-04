@@ -50,7 +50,7 @@ class NavbarController extends Controller
      */
     public function show(Navbar $navbar)
     {
-        return view('back.navbar.show', compact('navbar'));
+
     }
 
     /**
@@ -76,9 +76,11 @@ class NavbarController extends Controller
 
 
         $request->validate([
+            "name"=>['required'],
             "lien"=>['required'],
         ]);
 
+        $navbar->name = $request->name;
         $navbar->lien = $request->lien;
 
         $navbar->save();
