@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Feature;
 use App\Models\Titre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FeatureController extends Controller
 {
@@ -61,7 +62,7 @@ class FeatureController extends Controller
      */
     public function edit(Feature $feature)
     {
-        //
+        return view('back.feature.edit',compact('feature'));
     }
 
     /**
@@ -71,9 +72,39 @@ class FeatureController extends Controller
      * @param  \App\Models\Feature  $feature
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Feature $feature)
+    public function update(Request $rq, Feature $feature)
     {
-        //
+        $rq->validate([
+            "img1"=>["required"],
+            "img2"=>["required"],
+            "titre1"=>["required"],
+            "sousTitre1"=>["required"],
+            "li1"=>["required"],
+            "li2"=>["required"],
+            "li3"=>["required"],
+            "titre2"=>["required"],
+            "sousTitre2"=>["required"],
+            "description"=>["required"],
+        ]);
+
+
+        Storage::disk('public')->delete('img/'.$feature->img1);
+        Storage::disk('public')->delete('img/'.$feature->img2);
+        $feature->img1 = $rq->file('img1')->hashName();
+        $feature->img2 = $rq->file('img2')->hashName();
+        $rq->file('img1')->storePublicly('img','public');
+        $rq->file('img2')->storePublicly('img','public');
+        $feature->titre1 = $rq->titre1;
+        $feature->sousTitre1 = $rq->sousTitre1;
+        $feature->li1 = $rq->li1;
+        $feature->li2 = $rq->li2;
+        $feature->li3 = $rq->li3;
+        $feature->titre2 = $rq->titre2;
+        $feature->sousTitre2 = $rq->sousTitre2;
+        $feature->description = $rq->description;
+        $feature->save();
+
+        return redirect()->route('sectionsFeature');
     }
 
     /**
@@ -84,6 +115,6 @@ class FeatureController extends Controller
      */
     public function destroy(Feature $feature)
     {
-        //
+        $feature->delete();
     }
 }

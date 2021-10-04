@@ -50,7 +50,7 @@
                 
               @endforeach
                 <div class="d-flex justify-content-center mt-1">
-                <a href="" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
+                <a href="{{route('usefullinks.index')}}" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
                 </div>
             </ul>
           </div>
@@ -63,7 +63,7 @@
                 
               @endforeach
                 <div class="d-flex justify-content-center mt-1">
-                <a href="" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
+                <a href="{{route('serviceslinks.index')}}" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
                 </div>
             </ul>
           </div>

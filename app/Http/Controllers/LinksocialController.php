@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usefullinkfooter;
+use App\Models\Linksocial;
 use Illuminate\Http\Request;
 
-class UsefullinkfooterController extends Controller
+class LinksocialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class UsefullinkfooterController extends Controller
      */
     public function index()
     {
-        $usefullinks = Usefullinkfooter::all();
-        return view('back.usefullink.allUsefullink',compact('usefullinks'));
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class UsefullinkfooterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Usefullinkfooter  $usefullinkfooter
+     * @param  \App\Models\Linksocial  $linksocial
      * @return \Illuminate\Http\Response
      */
-    public function show(Usefullinkfooter $usefullinkfooter)
+    public function show(Linksocial $linksocial)
     {
         //
     }
@@ -53,44 +52,34 @@ class UsefullinkfooterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Usefullinkfooter  $usefullinkfooter
+     * @param  \App\Models\Linksocial  $linksocial
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Linksocial $linksocial)
     {
-        $usefullinkfooter = Usefullinkfooter::find($id);
-        return view('back.usefullink.edit',compact('usefullinkfooter'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Usefullinkfooter  $usefullinkfooter
+     * @param  \App\Models\Linksocial  $linksocial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $rq, Usefullinkfooter $usefullinkfooter)
+    public function update(Request $request, Linksocial $linksocial)
     {
-        $rq->validate([
-            "name"=>["required"],
-            "link"=>["required"],
-        ]);
-        $usefullinkfooter->name = $rq->name;
-        $usefullinkfooter->link = $rq->link;
-        $usefullinkfooter->save();
-
-        return redirect()->route('usefullinks.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Usefullinkfooter  $usefullinkfooter
+     * @param  \App\Models\Linksocial  $linksocial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usefullinkfooter $usefullinkfooter)
+    public function destroy(Linksocial $linksocial)
     {
-        $usefullinkfooter->delete();
-        return redirect()->back();
+        //
     }
 }

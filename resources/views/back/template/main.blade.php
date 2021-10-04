@@ -37,10 +37,10 @@
 
       </head>
 
-<body class="position-relative  min-vh-100 h-100">
+<body class="position-relative  min-vh-100 h-100 pb-5">
      <div class="container-fluid ">
 
-        <div class="container w-75 ">
+        <div class="container w-75  ">
         <x-app-layout>
             <x-slot name="header">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">

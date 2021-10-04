@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Serviceslinkfooter extends Model
 {
     use HasFactory;
+    protected $table = "serviceslinkfooters";
+    protected $fillable = ["name","link"];
 
     
 }
