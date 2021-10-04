@@ -55,20 +55,8 @@
             </a>
             <span class="tooltip">Testimonials</span>
         </li>
-        <li>
-            <a href="#" class="text-light">
-                <i class='bx bx-book-content'></i>
-                <span class="links_name">Testimonials</span>
-            </a>
-            <span class="tooltip">Testimonials</span>
-        </li>
-        <li>
-            <a href="#" class="text-light">
-                <i class='bx bx-book-content'></i>
-                <span class="links_name">Testimonials</span>
-            </a>
-            <span class="tooltip">Testimonials</span>
-        </li>
+
+
 
 
         <li>

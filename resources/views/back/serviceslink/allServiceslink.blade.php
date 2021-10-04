@@ -2,8 +2,6 @@
 
 
 
-@section('backContent')
-@extends('back.template.main')
 
 
 
@@ -38,5 +36,4 @@
 
   </tbody>
 </table> 
-@endsection
 @endsection

@@ -14,7 +14,8 @@ class LinksocialController extends Controller
      */
     public function index()
     {
-        //
+        $linksocials = Linksocial::all();
+        return view('back.linksocial.allLinksocial',compact('linksocials'));
     }
 
     /**
