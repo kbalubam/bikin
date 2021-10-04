@@ -56,11 +56,11 @@ class ServiceslinkfooterController extends Controller
      * @param  \App\Models\Serviceslinkfooter  $serviceslinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function edit(Serviceslinkfooter  $serviceslinkfooter)
+    public function edit($id)
     {
-        // dd($serviceslinkfooter->id);
-        // $serviceslink = $serviceslinkfooter;
-        return view('back.serviceslink.edit',compact('serviceslinkfooter'));
+        //  dd($serviceslinkfooter->id);
+        $serviceslink = Serviceslinkfooter::find($id);
+        return view('back.serviceslink.edit',compact('serviceslink'));
     }
 
     /**
@@ -70,12 +70,13 @@ class ServiceslinkfooterController extends Controller
      * @param  \App\Models\Serviceslinkfooter  $serviceslinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $rq, Serviceslinkfooter $serviceslinkfooter)
+    public function update($id,Request $rq )
     {
         $rq->validate([
             "name"=>["required"],
             "link"=>["required"],
         ]);
+        $serviceslinkfooter = Serviceslinkfooter::find($id);
         $serviceslinkfooter->name = $rq->name;
         $serviceslinkfooter->link = $rq->link;
         $serviceslinkfooter->save();
@@ -90,8 +91,9 @@ class ServiceslinkfooterController extends Controller
      * @param  \App\Models\Serviceslinkfooter  $serviceslinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Serviceslinkfooter $serviceslinkfooter)
+    public function destroy($id)
     {
+        $serviceslinkfooter = Serviceslinkfooter::find($id);
         $serviceslinkfooter->delete();
         return redirect()->back();
     }

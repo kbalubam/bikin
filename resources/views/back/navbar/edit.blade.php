@@ -1,5 +1,5 @@
 @extends('back.template.main')
-@section('content')
+@section('backContent')
 <form action="{{route('navbars.update',$navbar->id)}}">
             @method('PUT')
             @csrf

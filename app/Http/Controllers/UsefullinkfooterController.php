@@ -56,9 +56,9 @@ class UsefullinkfooterController extends Controller
      * @param  \App\Models\Usefullinkfooter  $usefullinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Usefullinkfooter $usefullinkfooter)
     {
-        $usefullinkfooter = Usefullinkfooter::find($id);
+        // $usefullinkfooter = Usefullinkfooter::find($id);
         return view('back.usefullink.edit',compact('usefullinkfooter'));
     }
 

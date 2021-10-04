@@ -14,7 +14,7 @@
 <div class="alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error )
-          <li>{{$error}}</li>  
+          <li>{{$error}}</li>
         @endforeach
     </ul>
 </div>
@@ -23,7 +23,7 @@
 
  <h1 class="text-center my-3"> Update Data Serviceslink</h1>
 
-<form action="{{route('serviceslinks.update',$serviceslinkfooter->id)}}" method="post"  class="border" >
+<form action="{{route('serviceslinks.update',$serviceslink->id)}}" method="post"  class="border" >
     @csrf
     @method('PUT')
 
@@ -31,12 +31,12 @@
 
 <div class="mb-3">
     <label for="name" class="form-label">Name</label>
-    <input type="text" value = "{{$serviceslinkfooter->name}}"   class="form-control" id="name" name="name" >
+    <input type="text" value = "{{$serviceslink->name}}"   class="form-control" id="name" name="name" >
 </div>
 
 <div class="mb-3">
     <label for="link" class="form-label">Link</label>
-    <input type="text" value = "{{$serviceslinkfooter->link}}"   class="form-control" id="link" name="link" >
+    <input type="text" value = "{{$serviceslink->link}}"   class="form-control" id="link" name="link" >
 </div>
 
 
@@ -49,7 +49,7 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </div>
 
-</form>  
+</form>
 
-</div>   
+</div>
 @endsection
