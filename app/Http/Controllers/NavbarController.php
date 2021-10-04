@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Navbar;
 use App\Models\Titre;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+
 
 class NavbarController extends Controller
 {
