@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
+use App\Models\Titre;
 use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
@@ -14,8 +15,10 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $allTesti = Testimonial::all();
-        return view('back.team.allTeam', compact('allTesti'));
+        $titreTestimonials = Titre::find(6);
+
+        $testimonials = Testimonial::all();
+        return view('back.testimonial.allTestimonial', compact('testimonials','titreTestimonials'));
     }
 
     /**

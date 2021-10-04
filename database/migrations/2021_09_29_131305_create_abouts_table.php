@@ -18,8 +18,9 @@ class CreateAboutsTable extends Migration
             $table->id();
             $table->string('titreSec');
             $table->string('descriptionSec');
-            $table->string('icon');
+            $table->foreignId('icon_id')->constrained('icons','id')->onDelete('cascade');
             $table->string('btn')->nullable();
+
             $table->timestamps();
         });
     }

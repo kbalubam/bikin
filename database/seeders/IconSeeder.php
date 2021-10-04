@@ -16,6 +16,26 @@ class IconSeeder extends Seeder
     {
         DB::table('icons')->insert([
             [
+                "name"=>"bx-receipt",
+                "linksocial_id"=>null
+            ],
+            [
+                "name"=>"bx-cube-alt",
+                "linksocial_id"=>null
+            ],
+            [
+                "name"=>"bx-images",
+                "linksocial_id"=>null
+            ],
+            [
+                "name"=>"bx-shield",
+                "linksocial_id"=>null
+            ],
+            [
+                "name"=>"bx-map",
+                "linksocial_id"=>null
+            ],
+            [
                 "name"=>"bx-map",
                 "linksocial_id"=>null
             ],

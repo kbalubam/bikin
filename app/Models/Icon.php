@@ -12,6 +12,12 @@ class Icon extends Model
     protected $table = 'icons';
 
     protected $fillable = ['name'];
+
+
+
+    public function abouts(){
+        return $this->hasMany(About::class);
+    }
     
     
 

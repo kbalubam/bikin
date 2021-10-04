@@ -5,7 +5,7 @@
 
               <div class="section-title">
                 <h2>{{$titrePortfolio->titre}}</h2>
-                <p>{{$titrePortfolio->soustitre}}</p>
+                <p>{{$titrePortfolio->sousTitre}}</p>
               </div>
 
               <div class="row">
@@ -25,12 +25,12 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-{{$port->soustitre2}}">
                   <div class="portfolio-wrap">
-                    <img src="{{asset('img/'.$port->img)}}" class="img-fluid" alt="">
+                    <img src="{{asset('img/portfolio/'.$port->img)}}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                       <h4>{{$port->soustitre}}</h4>
                       <p>{{$port->soustitre2}}</p>
                       <div class="portfolio-links">
-                        <a href="{{asset('img/'.$port->img)}})" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{$port->soustitre}}"><i class="bx bx-plus"></i></a>
+                        <a href="{{asset('img/portfolio/'.$port->img)}})" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{$port->soustitre}}"><i class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                       </div>
                     </div>

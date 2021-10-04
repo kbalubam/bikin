@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\Titre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,7 +16,10 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        
+        $titreTeam = Titre::find(7);
+        $teams  = Team::all();
+        return view('back.team.allTeam',compact('titreTeam','teams'));
     }
 
     /**
