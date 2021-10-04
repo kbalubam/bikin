@@ -29,7 +29,7 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.portfolio.create');
     }
 
     /**
@@ -40,7 +40,21 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "img"=>['required'],
+            "soustitre"=>['required'],
+            "soustitre2"=>['required'],
+            "lien"=>['required'],
+        ]);
+        $portfolio = new Portfolio;
+        $portfolio->soustitre = $request->soustitre;
+        $portfolio->soustitre2 = $request->soustitre;
+        $portfolio->img = $request->file('img')->hashName();
+        $request->file('img')->storePublicly('img/portfolio/', 'public');
+        $portfolio->soustitre2 = $request->soustitre2;
+        $portfolio->lien = $request->lien;
+        $portfolio->save();
+        return redirect()->route('portfolios.index');
     }
 
     /**
@@ -62,7 +76,7 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
-        return view('back.portfolio.edit', compact('$portfolio'));
+        return view('back.portfolio.edit', compact('portfolio'));
 
     }
 
@@ -81,15 +95,15 @@ class PortfolioController extends Controller
             "soustitre2"=>['required'],
             "lien"=>['required'],
         ]);
-        Storage::disk('public')->delete('img/'.$portfolio->image);
-        $portfolio->img = $request->img;
+        Storage::disk('public')->delete('img/portfolio/'.$portfolio->img);
         $portfolio->soustitre = $request->soustitre;
-        $request->image = $request->file('image')->hashName();
-        $request->file('image')->storePublicly('img', 'public');
+        $portfolio->soustitre2 = $request->soustitre;
+        $portfolio->img = $request->file('img')->hashName();
+        $request->file('img')->storePublicly('img/portfolio/', 'public');
         $portfolio->soustitre2 = $request->soustitre2;
         $portfolio->lien = $request->lien;
         $portfolio->save();
-        return redirect()->route('navbars.index');
+        return redirect()->route('portfolios.index');
     }
 
     /**
@@ -101,6 +115,6 @@ class PortfolioController extends Controller
     public function destroy(Portfolio $portfolio)
     {
         $portfolio->delete();
-        return redirect()->route('navbars.index');
+        return redirect()->back();
     }
 }

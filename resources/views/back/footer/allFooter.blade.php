@@ -112,7 +112,7 @@
               @endforeach
             </div>
             <div class="d-flex justify-content-center mt-1">
-            <a href="" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
+            <a href="{{route('linksocials.index')}}" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
             </div>
 
       </div>

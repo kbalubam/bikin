@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hero;
 use App\Models\Titre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HeroController extends Controller
 {
@@ -64,7 +65,7 @@ class HeroController extends Controller
      */
     public function edit(Hero $hero)
     {
-        //
+        return view('back.hero.edit',compact('hero'));
     }
 
     /**
@@ -76,7 +77,18 @@ class HeroController extends Controller
      */
     public function update(Request $request, Hero $hero)
     {
-        //
+        $request->validate([
+            "img"=>['required'],
+            "btn"=>['required'],
+        ]);
+        
+
+        Storage::disk('public')->delete('img/'.$hero->image);
+        $hero->img = $request->file('img')->hashName();
+        $hero->btn = $request->btn;
+        $request->file('img')->storePublicly('img', 'public');
+        $hero->save();
+        return redirect()->route('heroes.index');
     }
 
     /**
@@ -87,6 +99,8 @@ class HeroController extends Controller
      */
     public function destroy(Hero $hero)
     {
-        //
+        $hero->delete();
+
+        return redirect()->back();
     }
 }

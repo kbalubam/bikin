@@ -16,7 +16,7 @@
           
       <tr>
         <th scope="row">{{$hero->id}}</th>
-        <td> {{$hero->img}}</td>
+        <td> <img src="{{asset('img/'.$hero->img)}}" style="height: 100px;width:100px" alt=""> </td>
         <td>{{$hero->btn}}</td>
 
         <td>

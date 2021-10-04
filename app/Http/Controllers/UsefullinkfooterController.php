@@ -56,9 +56,9 @@ class UsefullinkfooterController extends Controller
      * @param  \App\Models\Usefullinkfooter  $usefullinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usefullinkfooter $usefullinkfooter)
+    public function edit($id)
     {
-        // $usefullinkfooter = Usefullinkfooter::find($id);
+         $usefullinkfooter = Usefullinkfooter::find($id);
         return view('back.usefullink.edit',compact('usefullinkfooter'));
     }
 
@@ -69,12 +69,14 @@ class UsefullinkfooterController extends Controller
      * @param  \App\Models\Usefullinkfooter  $usefullinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $rq, Usefullinkfooter $usefullinkfooter)
+    public function update(Request $rq, $id)
     {
         $rq->validate([
             "name"=>["required"],
             "link"=>["required"],
         ]);
+         $usefullinkfooter = Usefullinkfooter::find($id);
+
         $usefullinkfooter->name = $rq->name;
         $usefullinkfooter->link = $rq->link;
         $usefullinkfooter->save();
@@ -88,8 +90,10 @@ class UsefullinkfooterController extends Controller
      * @param  \App\Models\Usefullinkfooter  $usefullinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usefullinkfooter $usefullinkfooter)
+    public function destroy($id)
     {
+         $usefullinkfooter = Usefullinkfooter::find($id);
+
         $usefullinkfooter->delete();
         return redirect()->back();
     }

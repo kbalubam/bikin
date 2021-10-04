@@ -62,8 +62,8 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-    $allTeam = Team::all();
-    return view('back.team.allTeam',compact('allTeam'));
+
+    return view('back.team.edit',compact('team'));
     }
 
     /**
@@ -81,10 +81,11 @@ class TeamController extends Controller
             "poste"=>['required'],
         ]);
 
-        Storage::disk('public')->delete('img/'.$team->image);
+        Storage::disk('public')->delete('img/team/'.$team->image);
+        $team->image = $request->file('image')->hashName();
         $team->nom = $request->nom;
         $team->poste = $request->poste;
-        $request->file('image')->storePublicly('img', 'public');
+        $request->file('image')->storePublicly('img/team/', 'public');
         $team->save();
         return redirect()->route('teams.index');
     }

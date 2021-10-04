@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Icon;
 use App\Models\Linksocial;
 use Illuminate\Http\Request;
 
@@ -58,7 +59,10 @@ class LinksocialController extends Controller
      */
     public function edit(Linksocial $linksocial)
     {
-        //
+        
+        $icons = Icon::where('linksocial_id','!=',null)->get();
+
+        return view('back.linksocial.edit',compact('linksocial','icons'));
     }
 
     /**
@@ -68,9 +72,19 @@ class LinksocialController extends Controller
      * @param  \App\Models\Linksocial  $linksocial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Linksocial $linksocial)
+    public function update(Request $rq, Linksocial $linksocial)
     {
-        //
+        $rq->validate([
+            "name"=>["required"],
+            "link"=>["required"],
+        ]);
+
+        $linksocial->name = $rq->name;
+        $linksocial->link = $rq->link;
+
+        $linksocial->save();
+
+        return redirect()->route('linksocials.index');
     }
 
     /**
