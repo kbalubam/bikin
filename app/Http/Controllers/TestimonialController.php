@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Testimonial;
 use App\Models\Titre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TestimonialController extends Controller
 {
@@ -79,12 +80,15 @@ class TestimonialController extends Controller
             "nom"=>['required'],
             "poste"=>['required'],
         ]);
-        $testimonial->nom = $request->description;
-        $testimonial->poste = $request->image;
-        $testimonial->poste = $request->nom;
+        Storage::disk('public')->delete('img/testimonials/'.$testimonial->image);
+
+        $testimonial->description = $request->description;
         $testimonial->poste = $request->poste;
+        $testimonial->nom = $request->nom;
+        $testimonial->image = $request->file('image')->hashName();
+        $request->file('image')->storePublicly('img/testimonials/','public');
         $testimonial->save();
-        return redirect()->route('teams.index');
+        return redirect()->route('testimonials.index');
 
     }
 

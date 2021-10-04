@@ -12,7 +12,7 @@
 
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
               <div class="member">
-                <img src="{{asset('img/'.$team->image)}}" class="img-fluid" alt="">
+                <img src="{{asset('img/team/'.$team->image)}}" class="img-fluid" alt="">
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>{{$team->nom}}</h4>

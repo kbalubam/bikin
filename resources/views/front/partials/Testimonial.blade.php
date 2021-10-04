@@ -18,7 +18,7 @@
                     {{$testi->description}}
                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                   </p>
-                  <img src="{{asset('img/'.$testi->image)}}" class="testimonial-img" alt="">
+                  <img src="{{asset('img/testimonials/'.$testi->image)}}" class="testimonial-img" alt="">
                   <h3>{{$testi->nom}}</h3>
                   <h4>{{$testi->poste}}</h4>
                 </div>

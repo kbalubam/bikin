@@ -57,7 +57,7 @@ class TitreController extends Controller
      */
     public function edit(Titre $titre)
     {
-        //
+        return view('back.titre.edit',compact('titre'));
     }
 
     /**
@@ -67,9 +67,18 @@ class TitreController extends Controller
      * @param  \App\Models\Titre  $titre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Titre $titre)
+    public function update(Request $rq, Titre $titre)
     {
-        //
+        $rq->validate([
+            "titre"=>["required"],
+            "sousTitre"=>["required"],
+        ]);
+
+        $titre->titre = $rq->titre;
+        $titre->sousTitre = $rq->sousTitre;
+        $titre->save();
+
+        return redirect()->route('titres',$titre->id);
     }
 
     /**
@@ -80,6 +89,9 @@ class TitreController extends Controller
      */
     public function destroy(Titre $titre)
     {
-        //
+        $titre->delete();
+
+
+        return redirect()->route('back');
     }
 }

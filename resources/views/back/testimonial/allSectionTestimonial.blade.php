@@ -14,7 +14,7 @@
 @foreach ($testimonials as $testimonial )
     
 <div class="card my-3" style="width: 18rem;">
-  <img src="{{asset("img/".$testimonial->image)}}" class="card-img-top" alt="...">
+  <img src="{{asset("img/testimonials/".$testimonial->image)}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{$testimonial->nom}}</h5>
     <p class="card-text">
