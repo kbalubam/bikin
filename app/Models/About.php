@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class About extends Model
 {
     use HasFactory;
+    protected $table = 'abouts';
+    protected $fillable = ['titreSec','descriptionSec','icon_id','btn'];
+
+
+
+    public function icon(){
+        return $this->belongsTo(Icon::class);
+    }
 }

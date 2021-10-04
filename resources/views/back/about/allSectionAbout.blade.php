@@ -19,7 +19,7 @@
           
       <tr>
         <th scope="row">{{$about->id}}</th>
-        <td> <i class="bx {{$about->icon}}"></i></td>
+        <td> <i class="bx {{$about->icon->name}}"></i></td>
         <td>{{$about->titreSec}}</td>
         <td>{{$about->descriptionSec}}</td>
         <td>

@@ -11,10 +11,10 @@
             @foreach ($navbar as $nav )
             @if ($nav->id === 1)
 
-            <li><a class="nav-link scrollto active" href="#{{$nav->lien}}">{{$nav->lien}}</a></li>
+            <li><a class="nav-link scrollto active" href="#{{$nav->lien}}">{{$nav->name}}</a></li>
             @else
 
-        <li><a class="nav-link scrollto" href="#{{$nav->lien}}">{{$nav->lien}}</a></li>
+        <li><a class="nav-link scrollto" href="#{{$nav->lien}}">{{$nav->name}}</a></li>
         @endif
         @endforeach
 
