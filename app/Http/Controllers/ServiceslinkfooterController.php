@@ -14,7 +14,8 @@ class ServiceslinkfooterController extends Controller
      */
     public function index()
     {
-        //
+        $serviceslinks = Serviceslinkfooter::all();
+        return view('back.serviceslink.allServiceslink',compact('serviceslinks'));
     }
 
     /**
@@ -55,9 +56,11 @@ class ServiceslinkfooterController extends Controller
      * @param  \App\Models\Serviceslinkfooter  $serviceslinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function edit(Serviceslinkfooter $serviceslinkfooter)
+    public function edit($id)
     {
-        //
+        //  dd($serviceslinkfooter->id);
+        $serviceslink = Serviceslinkfooter::find($id);
+        return view('back.serviceslink.edit',compact('serviceslink'));
     }
 
     /**
@@ -67,9 +70,19 @@ class ServiceslinkfooterController extends Controller
      * @param  \App\Models\Serviceslinkfooter  $serviceslinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Serviceslinkfooter $serviceslinkfooter)
+    public function update($id,Request $rq )
     {
-        //
+        $rq->validate([
+            "name"=>["required"],
+            "link"=>["required"],
+        ]);
+        $serviceslinkfooter = Serviceslinkfooter::find($id);
+        $serviceslinkfooter->name = $rq->name;
+        $serviceslinkfooter->link = $rq->link;
+        $serviceslinkfooter->save();
+
+
+        return redirect()->route('serviceslinks.index');
     }
 
     /**
@@ -78,8 +91,10 @@ class ServiceslinkfooterController extends Controller
      * @param  \App\Models\Serviceslinkfooter  $serviceslinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Serviceslinkfooter $serviceslinkfooter)
+    public function destroy($id)
     {
-        //
+        $serviceslinkfooter = Serviceslinkfooter::find($id);
+        $serviceslinkfooter->delete();
+        return redirect()->back();
     }
 }

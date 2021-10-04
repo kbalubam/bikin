@@ -14,7 +14,8 @@ class UsefullinkfooterController extends Controller
      */
     public function index()
     {
-        //
+        $usefullinks = Usefullinkfooter::all();
+        return view('back.usefullink.allUsefullink',compact('usefullinks'));
     }
 
     /**
@@ -57,7 +58,8 @@ class UsefullinkfooterController extends Controller
      */
     public function edit(Usefullinkfooter $usefullinkfooter)
     {
-        //
+        // $usefullinkfooter = Usefullinkfooter::find($id);
+        return view('back.usefullink.edit',compact('usefullinkfooter'));
     }
 
     /**
@@ -67,9 +69,17 @@ class UsefullinkfooterController extends Controller
      * @param  \App\Models\Usefullinkfooter  $usefullinkfooter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usefullinkfooter $usefullinkfooter)
+    public function update(Request $rq, Usefullinkfooter $usefullinkfooter)
     {
-        //
+        $rq->validate([
+            "name"=>["required"],
+            "link"=>["required"],
+        ]);
+        $usefullinkfooter->name = $rq->name;
+        $usefullinkfooter->link = $rq->link;
+        $usefullinkfooter->save();
+
+        return redirect()->route('usefullinks.index');
     }
 
     /**
@@ -80,6 +90,7 @@ class UsefullinkfooterController extends Controller
      */
     public function destroy(Usefullinkfooter $usefullinkfooter)
     {
-        //
+        $usefullinkfooter->delete();
+        return redirect()->back();
     }
 }

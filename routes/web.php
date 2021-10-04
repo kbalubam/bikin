@@ -12,6 +12,8 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UsefullinkfooterController;
+use App\Http\Controllers\ServiceslinkfooterController;
 use App\Models\About;
 use App\Models\Contact;
 use App\Models\Feature;
@@ -48,6 +50,8 @@ Route::resource('/back/contacts', ContactController::class);
 Route::resource('/back/features', FeatureController::class);
 Route::resource('/back/footers', FooterController::class);
 Route::resource('/back/heroes', HeroController::class);
+Route::resource('/back/usefullinks', UsefullinkfooterController::class);
+Route::resource('/back/serviceslinks', ServiceslinkfooterController::class);
 
 
 Route::get('/back/sectionsAbout',function(){
