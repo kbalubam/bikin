@@ -7,14 +7,14 @@
     <ul class="nav-list ">
         <li>
             <a href="{{route('navbars.index')}}" class="text-light">
-            <i class='bx bx-navigation'></i>    
+            <i class='bx bx-navigation'></i>
             <span class="links_name">NavBar</span>
             </a>
             <span class="tooltip">NavBar</span>
         </li>
         <li>
             <a href="{{route('heroes.index')}}" class="text-light">
-                <i class='bx bx-heading'></i>              
+                <i class='bx bx-heading'></i>
                 <span class="links_name">Hero</span>
             </a>
             <span class="tooltip">Hero</span>
@@ -62,13 +62,7 @@
             </a>
             <span class="tooltip">Testimonials</span>
         </li>
-        <li>
-            <a href="#" class="text-light">
-                <i class='bx bx-book-content'></i>
-                <span class="links_name">Testimonials</span>
-            </a>
-            <span class="tooltip">Testimonials</span>
-        </li>
+      
 
 
         <li>

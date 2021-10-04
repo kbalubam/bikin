@@ -15,9 +15,9 @@ class NavbarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $titreBikin = Titre::find(9);
-        
+
         $navbars = Navbar::all();
         return view('back.navbar.allNavbar', compact('navbars','titreBikin'));
     }
