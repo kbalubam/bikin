@@ -28,10 +28,24 @@
             </a>
             <span class="tooltip">Testimonials</span>
         </li>
+        <li>
+            <a href="#" class="text-light">
+                <i class='bx bx-book-content'></i>
+                <span class="links_name">Testimonials</span>
+            </a>
+            <span class="tooltip">Testimonials</span>
+        </li>
+        <li>
+            <a href="#" class="text-light">
+                <i class='bx bx-book-content'></i>
+                <span class="links_name">Testimonials</span>
+            </a>
+            <span class="tooltip">Testimonials</span>
+        </li>
 
 
 
-  
+
 
 
 
@@ -55,15 +69,15 @@
                 </div>
                 <form action="#" method="post">
                     @csrf
-    
+
                     <button type="submit">
                         <a href="#">
-    
+
                             <i class='bx bx-log-out' id="log_out"></i>
-    
-    
+
+
                         </a>
-    
+
                     </button>
                 </form>
             </div>
