@@ -1,5 +1,5 @@
 @extends('back.template.main')
-@section('content')
+@section('backContent')
 <form action="{{route('services.update',$service->id)}}">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Soustitre</label>

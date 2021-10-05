@@ -71,14 +71,14 @@ class TitreController extends Controller
     {
         $rq->validate([
             "titre"=>["required"],
-            "sousTitre"=>["required"],
+
         ]);
 
         $titre->titre = $rq->titre;
         $titre->sousTitre = $rq->sousTitre;
         $titre->save();
 
-        return redirect()->route('titres',$titre->id);
+        return redirect()->route('titres.show',$titre->id);
     }
 
     /**

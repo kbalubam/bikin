@@ -28,7 +28,9 @@ class AboutController extends Controller
      */
     public function create()
     {
-        //
+        $icons = Icon::where('linksocial_id',null)->get();
+
+        return view('back.about.create',compact('icons'));
     }
 
     /**
@@ -37,9 +39,21 @@ class AboutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $rq)
     {
-        //
+        $rq->validate([
+                "titreSec"=>["required"],
+                "descriptionSec"=>["required"],
+                "icon_id"=>["required"],
+        ]);
+
+        $about = new About;
+        $about->titreSec = $rq->titreSec;
+        $about->descriptionSec = $rq->descriptionSec;
+        $about->icon_id = $rq->icon_id;
+        $about->save();
+        
+        return redirect()->route('sectionsAbout');
     }
 
     /**

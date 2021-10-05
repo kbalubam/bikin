@@ -24,7 +24,7 @@
                        {{$adress->country}}  <br><br>
                         @endforeach
                         <div class="d-flex justify-content-center ">
-                        <a href="" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
+                        <a href="{{route('adressfooters.index')}}" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <strong>{{$info->intitule}} : </strong>{{$info->donnee}}<br>
                     @endforeach
                     <div class="d-flex justify-content-center mt-1">
-                    <a href="" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
+                    <a href="{{route('infosfooters.index')}}" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
                     </div>
                 </div>
               {{-- <strong>Email:</strong> info@example.com<br> --}}
@@ -43,7 +43,7 @@
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>{{$st1footer->intitule}} <a href="{{route('titres.show',$titreBikin->id)}}" class="text-warning"><i class="fas fa-eye"></i></a></h4>
+            <h4>{{$st1footer->intitule}} <a href="{{route('soustitrefooters.show',$st1footer->id)}}" class="text-warning"><i class="fas fa-eye"></i></a></h4>
             <ul class="border my-1">
               @foreach ($usefullinks as $useful )
               <li><i class="bx bx-chevron-right"></i> <a href="{{$useful->link}}">{{$useful->name}}</a></li>
@@ -56,7 +56,7 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>{{$st2footer->intitule}} <a href="{{route('titres.show',$titreBikin->id)}}" class="text-warning"><i class="fas fa-eye"></i></a></h4>
+            <h4>{{$st2footer->intitule}} <a href="{{route('soustitrefooters.show',$st2footer->id)}}" class="text-warning"><i class="fas fa-eye"></i></a></h4>
             <ul class="border my-1">
              @foreach ($serviceslinks as $service )
               <li><i class="bx bx-chevron-right"></i> <a href="{{$service->link}}">{{$service->name}}</a></li>
@@ -69,7 +69,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>{{$st3footer->intitule}} <a href="{{route('titres.show',$titreBikin->id)}}" class="text-warning"><i class="fas fa-eye"></i></a></h4>
+            <h4>{{$st3footer->intitule}} <a href="{{route('soustitrefooters.show',$st3footer->id)}}" class="text-warning"><i class="fas fa-eye"></i></a></h4>
             <div class="border my-2">
 
                 @foreach ($newsletterinfo as $info )
@@ -77,7 +77,7 @@
                 <p>{{$info->description}}</p>
                 @endforeach
                 <div class="d-flex justify-content-center mt-1">
-                <a href="" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
+                <a href="{{route('newsletterinfos.index')}}" class="btn btn-warning"><i class="fas fa-eye"></i></a>    
                 </div>
             </div>
             <form action="" method="post">

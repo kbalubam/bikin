@@ -4,6 +4,8 @@
 
 
 @section('backContent')
+<div class="container mb-5">
+
 <table class="table">
   <thead>
     <tr>
@@ -35,4 +37,9 @@
 
   </tbody>
 </table> 
+      <div class="container d-flex justify-content-center">
+      
+          <a href="{{route('abouts.create')}}" class="btn btn-warning p-4  my-3 rounded mx-auto"><i class="fas fa-plus text-secondary fs-2"></i></a>
+      </div>
+</div>
 @endsection

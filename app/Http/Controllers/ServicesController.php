@@ -28,7 +28,7 @@ class ServicesController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.services.create');
     }
 
     /**
@@ -39,7 +39,16 @@ class ServicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     
+         $request->validate([
+            "soustitre"=>['required'],
+            "description"=>['required'],
+        ]);
+        $services = new Services;
+        $services->soustitre = $request->soustitre;
+        $services->description = $request->description;
+        $services->save();
+        return redirect()->route('services.index');
     }
 
     /**
@@ -59,9 +68,10 @@ class ServicesController extends Controller
      * @param  \App\Models\Services  $services
      * @return \Illuminate\Http\Response
      */
-    public function edit(Services $services)
-    {
-        return view('back.services.edit', compact('services'));
+    public function edit(Services $service)
+    {   
+        
+        return view('back.services.edit', compact('service'));
     }
 
     /**
@@ -89,8 +99,9 @@ class ServicesController extends Controller
      * @param  \App\Models\Services  $services
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Services $services)
+    public function destroy($id)
     {
+        $services = Services::find($id);
         $services->delete();
         return redirect()->route('services.index');
     }

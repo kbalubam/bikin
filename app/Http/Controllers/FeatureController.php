@@ -29,7 +29,7 @@ class FeatureController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.feature.create');
     }
 
     /**
@@ -38,9 +38,38 @@ class FeatureController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $rq)
     {
-        //
+        $rq->validate([
+            "img1"=>["required"],
+            "img2"=>["required"],
+            "titre1"=>["required"],
+            "sousTitre1"=>["required"],
+            "li1"=>["required"],
+            "li2"=>["required"],
+            "li3"=>["required"],
+            "titre2"=>["required"],
+            "sousTitre2"=>["required"],
+            "description"=>["required"],
+        ]);
+
+        
+        $feature = new Feature;
+        $feature->img1 = $rq->file('img1')->hashName();
+        $feature->img2 = $rq->file('img2')->hashName();
+        $rq->file('img1')->storePublicly('img','public');
+        $rq->file('img2')->storePublicly('img','public');
+        $feature->titre1 = $rq->titre1;
+        $feature->sousTitre1 = $rq->sousTitre1;
+        $feature->li1 = $rq->li1;
+        $feature->li2 = $rq->li2;
+        $feature->li3 = $rq->li3;
+        $feature->titre2 = $rq->titre2;
+        $feature->sousTitre2 = $rq->sousTitre2;
+        $feature->description = $rq->description;
+        $feature->save();
+
+        return redirect()->route('sectionsFeature');        
     }
 
     /**

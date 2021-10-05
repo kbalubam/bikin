@@ -5,6 +5,8 @@
         <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list ">
+        @can('user_editeur')
+
         <li>
             <a href="{{route('navbars.index')}}" class="text-light">
             <i class='bx bx-navigation'></i>
@@ -48,6 +50,8 @@
             </a>
             <span class="tooltip">Team</span>
         </li>
+        @endcan
+
         <li>
             <a href="{{route('testimonials.index')}}" class="text-light">
                <i class='bx bx-book-open'></i>
@@ -56,10 +60,11 @@
             <span class="tooltip">Testimonials</span>
         </li>
 
+        @can('user_editeur')
+            
 
 
-
-        <li>
+    
         <li>
             <a href="{{route('contacts.index')}}" class="text-light">
                <i class='bx bx-envelope' ></i>
@@ -91,13 +96,14 @@
 
 
         <li>
-            <a href="#" class="text-light">
+            <a href="{{route('users.index')}}" class="text-light">
                 <i class='bx bx-user'></i>
                 <span class="links_name">Users</span>
             </a>
             <span class="tooltip">Users</span>
         </li>
 
+        @endcan
 
         <li class="profile">
             <div class="profile-details">

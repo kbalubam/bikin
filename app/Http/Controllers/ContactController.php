@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Icon;
 use App\Models\Titre;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,9 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        $icons = Icon::where('linksocial_id',null)->get();
+
+        return view('back.contact.create',compact('icons'));
     }
 
     /**
@@ -36,9 +39,22 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $rq)
     {
-        //
+        $rq->validate([
+                "titre"=>["required"],
+                "sousTitre"=>["required"],
+                "icon_id"=>["required"],
+        ]);
+
+        $contact = new Contact;
+        $contact->titre = $rq->titre;
+        $contact->sousTitre = $rq->sousTitre;
+        if($rq->infos != null) $contact->infos = $rq->infos;
+        $contact->icon_id = $rq->icon_id;
+        $contact->save();
+        
+        return redirect()->route('sectionsContact');
     }
 
     /**
@@ -60,7 +76,9 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        $icons = Icon::where('linksocial_id',null)->get();
+
+        return view('back.contact.edit',compact('icons','contact'));
     }
 
     /**
@@ -70,9 +88,22 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $rq, Contact $contact)
     {
-        //
+        $rq->validate([
+                "titre"=>["required"],
+                "sousTitre"=>["required"],
+                "icon_id"=>["required"],
+        ]);
+
+
+        $contact->titre = $rq->titre;
+        $contact->sousTitre = $rq->sousTitre;
+        if($rq->infos != null) $contact->infos = $rq->infos;
+        $contact->icon_id = $rq->icon_id;
+        $contact->save();
+        
+        return redirect()->route('sectionsContact');
     }
 
     /**

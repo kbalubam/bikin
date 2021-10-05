@@ -29,7 +29,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.testimonial.create');
     }
 
     /**
@@ -40,7 +40,20 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-
+        $request->validate([
+            "description"=>['required'],
+            "image"=>['required'],
+            "nom"=>['required'],
+            "poste"=>['required'],
+        ]);
+        $testimonial = new Testimonial;
+        $testimonial->description = $request->description;
+        $testimonial->poste = $request->poste;
+        $testimonial->nom = $request->nom;
+        $testimonial->image = $request->file('image')->hashName();
+        $request->file('image')->storePublicly('img/testimonials/','public');
+        $testimonial->save();
+        return redirect()->route('sectionsTestimonial');
     }
 
     /**
@@ -76,19 +89,21 @@ class TestimonialController extends Controller
     {
         $request->validate([
             "description"=>['required'],
-            "image"=>['required'],
             "nom"=>['required'],
             "poste"=>['required'],
         ]);
-        Storage::disk('public')->delete('img/testimonials/'.$testimonial->image);
+        if($request->file('image') !== null){
+
+            Storage::disk('public')->delete('img/testimonials/'.$testimonial->image);
+            $testimonial->image = $request->file('image')->hashName();
+            $request->file('image')->storePublicly('img/testimonials/','public');
+        }
 
         $testimonial->description = $request->description;
         $testimonial->poste = $request->poste;
         $testimonial->nom = $request->nom;
-        $testimonial->image = $request->file('image')->hashName();
-        $request->file('image')->storePublicly('img/testimonials/','public');
         $testimonial->save();
-        return redirect()->route('testimonials.index');
+        return redirect()->route('sectionsTestimonial');
 
     }
 
@@ -100,6 +115,8 @@ class TestimonialController extends Controller
      */
     public function destroy(Testimonial $testimonial)
     {
+        $this->authorize('user_admin');
+        $this->authorize('user_webmaster');
         $testimonial->delete();
         return redirect()->route('teams.index');
     }

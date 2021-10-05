@@ -29,7 +29,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.team.create');
     }
 
     /**
@@ -40,7 +40,18 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "image"=>['required'],
+            "nom"=>['required'],
+            "poste"=>['required'],
+        ]);
+        $team =new Team;
+        $team->image = $request->file('image')->hashName();
+        $team->nom = $request->nom;
+        $team->poste = $request->poste;
+        $request->file('image')->storePublicly('img/team/', 'public');
+        $team->save();
+        return redirect()->route('teams.index');
     }
 
     /**
@@ -76,16 +87,16 @@ class TeamController extends Controller
     public function update(Request $request, Team $team)
     {
         $request->validate([
-            "image"=>['required'],
             "nom"=>['required'],
             "poste"=>['required'],
         ]);
-
-        Storage::disk('public')->delete('img/team/'.$team->image);
-        $team->image = $request->file('image')->hashName();
+        if($request->file('image') !== null){
+            Storage::disk('public')->delete('img/team/'.$team->image);
+            $team->image = $request->file('image')->hashName();
+            $request->file('image')->storePublicly('img/team/', 'public');
+        }
         $team->nom = $request->nom;
         $team->poste = $request->poste;
-        $request->file('image')->storePublicly('img/team/', 'public');
         $team->save();
         return redirect()->route('teams.index');
     }

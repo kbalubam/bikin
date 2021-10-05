@@ -14,7 +14,12 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UsefullinkfooterController;
 use App\Http\Controllers\ServiceslinkfooterController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LinksocialController;
+use App\Http\Controllers\AdressfooterController;
+use App\Http\Controllers\InfosfooterController;
+use App\Http\Controllers\SoustitrefooterController;
+use App\Http\Controllers\NewsletterinfoController;
 use App\Models\About;
 use App\Models\Contact;
 use App\Models\Feature;
@@ -40,72 +45,76 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class,'index'])->name('home');
-Route::resource('/back/navbars', NavbarController::class);
-Route::resource('/back/portfolios', PortfolioController::class);
-Route::resource('/back/services', ServicesController::class);
-Route::resource('/back/teams', TeamController::class);
-Route::resource('/back/testimonials', TestimonialController::class);
-Route::resource('/back/abouts', AboutController::class);
-Route::resource('/back/titres', TitreController::class);
-Route::resource('/back/contacts', ContactController::class);
-Route::resource('/back/features', FeatureController::class);
-Route::resource('/back/footers', FooterController::class);
-Route::resource('/back/heroes', HeroController::class);
-Route::resource('/back/usefullinks', UsefullinkfooterController::class);
-Route::resource('/back/serviceslinks', ServiceslinkfooterController::class);
-Route::resource('/back/linksocials', LinksocialController::class);
-
+Route::resource('/back/navbars', NavbarController::class)->middleware(['webmaster']);
+Route::resource('/back/portfolios', PortfolioController::class)->middleware(['webmaster']);
+Route::resource('/back/services', ServicesController::class)->middleware(['webmaster']);
+Route::resource('/back/teams', TeamController::class)->middleware(['webmaster']);
+Route::resource('/back/testimonials', TestimonialController::class)->middleware(['editeur']);
+Route::resource('/back/abouts', AboutController::class)->middleware(['webmaster']);
+Route::resource('/back/titres', TitreController::class)->middleware(['webmaster']);
+Route::resource('/back/contacts', ContactController::class)->middleware(['webmaster']);
+Route::resource('/back/features', FeatureController::class)->middleware(['webmaster']);
+Route::resource('/back/footers', FooterController::class)->middleware(['webmaster']);
+Route::resource('/back/heroes', HeroController::class)->middleware(['webmaster']);
+Route::resource('/back/usefullinks', UsefullinkfooterController::class)->middleware(['webmaster']);
+Route::resource('/back/serviceslinks', ServiceslinkfooterController::class)->middleware(['webmaster']);
+Route::resource('/back/users', UserController::class)->middleware(['webmaster']);
+Route::resource('/back/linksocials', LinksocialController::class)->middleware(['webmaster']);
+Route::resource('/back/adressfooters', AdressfooterController::class)->middleware(['webmaster']);
+Route::resource('/back/infosfooters', InfosfooterController::class)->middleware(['webmaster']);
+Route::resource('/back/soustitrefooters', SoustitrefooterController::class)->middleware(['webmaster']);
+Route::resource('/back/newsletterinfos', NewsletterinfoController::class)->middleware(['webmaster']);
 
 Route::get('/back/sectionsAbout',function(){
     $abouts = About::all();
     return view('back.about.allSectionAbout',compact('abouts'));
-})->name('sectionsAbout');
+})->middleware(['webmaster'])->name('sectionsAbout');
 Route::get('/back/sectionsContact',function(){
     $contacts = Contact::all();
     return view('back.contact.allSectionContact',compact('contacts'));
-})->name('sectionsContact');
+})->middleware(['webmaster'])->name('sectionsContact');
 Route::get('/back/sectionsFeatures',function(){
     $features = Feature::all();
     return view('back.feature.allSectionFeature',compact('features'));
-})->name('sectionsFeature');
+})->middleware(['webmaster'])->name('sectionsFeature');
 Route::get('/back/sectionsHero',function(){
-    
+
     $heroes = Hero::all();
     return view('back.hero.allSectionHero',compact('heroes'));
-})->name('sectionsHero');
+})->middleware(['webmaster'])->name('sectionsHero');
 Route::get('/back/sectionsNavbar',function(){
-    
+
     $navbars = Navbar::all();
     return view('back.Navbar.allSectionNavbar',compact('navbars'));
-})->name('sectionsNavbar');
+})->middleware(['webmaster'])->name('sectionsNavbar');
 
 Route::get('/back/sectionsPortfolio',function(){
     $portfolios = Portfolio::all();
     return view('back.portfolio.allSectionPortfolio',compact('portfolios'));
-})->name('sectionsPortfolio');
+})->middleware(['webmaster'])->name('sectionsPortfolio');
 
 Route::get('/back/sectionsService',function(){
     $services = Services::all();
     return view('back.services.allSectionService',compact('services'));
-})->name('sectionsService');
+})->middleware(['webmaster'])->name('sectionsService');
 
 Route::get('/back/sectionsTeam',function(){
 
     $teams = Team::all();
     return view('back.team.allSectionTeam',compact('teams'));
-})->name('sectionsTeam');
+})->middleware(['webmaster'])->name('sectionsTeam');
 
-Route::get('/back/sectionsTestimonial',function(){
+ Route::get('/back/sectionsTestimonial',function(){
 
-    $testimonials = Testimonial::all();
-    return view('back.testimonial.allSectionTestimonial',compact('testimonials'));
-})->name('sectionsTestimonial');
+     $testimonials = Testimonial::all();
+     return view('back.testimonial.allSectionTestimonial',compact('testimonials'));
+ })->middleware(['editeur'])->name('sectionsTestimonial');
 
 
 
 Route::get('/back',function(){
     return view('back.pages.home');
-})->name('back');
+})->name('back')->middleware(['auth']);
 Route::resource('back/abouts', AboutController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');

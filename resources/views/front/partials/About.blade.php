@@ -18,7 +18,7 @@
                   @foreach ($abouts as $about )
                     
                   <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <i class="bx {{$about->icon}}"></i>
+                    <i class="bx {{$about->icon->name}}"></i>
                     <h4>{{$about->titreSec}}</h4>
                     <p>{{$about->descriptionSec}}</p>
                   </div>

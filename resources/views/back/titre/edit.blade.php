@@ -14,7 +14,7 @@
 
 
  <h1 class="text-center my-3"> Update Data Titre</h1>
-<form action="{{route('titres.update',$titre->id)}}" enctype="multipart/form-data" class="border">
+<form action="{{route('titres.update',$titre->id)}}" method="POST" enctype="multipart/form-data" class="border">
             @method('PUT')
             @csrf
             <h1 class="text-center">EDIT titre</h1>

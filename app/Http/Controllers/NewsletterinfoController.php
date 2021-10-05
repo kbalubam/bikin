@@ -14,7 +14,8 @@ class NewsletterinfoController extends Controller
      */
     public function index()
     {
-        //
+        $newsletterinfos = Newsletterinfo::all();
+        return view('back.newsletterinfo.allSectionNewsletterinfo',compact('newsletterinfos'));
     }
 
     /**
@@ -24,7 +25,8 @@ class NewsletterinfoController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.newsletterinfo.create');
+        
     }
 
     /**
@@ -33,9 +35,17 @@ class NewsletterinfoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $rq)
     {
-        //
+        $rq->validate([
+            "description"=>["required"],
+        ]);
+        $newsletterinfo = new Newsletterinfo;
+        $newsletterinfo->description = $rq->description;
+
+        $newsletterinfo->save();
+
+        return redirect()->route('newsletterinfos.index');
     }
 
     /**
@@ -57,7 +67,8 @@ class NewsletterinfoController extends Controller
      */
     public function edit(Newsletterinfo $newsletterinfo)
     {
-        //
+        return view('back.newsletterinfo.edit',compact('newsletterinfo'));
+
     }
 
     /**
@@ -67,9 +78,16 @@ class NewsletterinfoController extends Controller
      * @param  \App\Models\Newsletterinfo  $newsletterinfo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Newsletterinfo $newsletterinfo)
+    public function update(Request $rq, Newsletterinfo $newsletterinfo)
     {
-        //
+        $rq->validate([
+            "description"=>["required"],
+        ]);
+        $newsletterinfo->description = $rq->description;
+
+        $newsletterinfo->save();
+
+        return redirect()->route('newsletterinfos.index');
     }
 
     /**
@@ -80,6 +98,8 @@ class NewsletterinfoController extends Controller
      */
     public function destroy(Newsletterinfo $newsletterinfo)
     {
-        //
+        $newsletterinfo->delete();
+
+        return redirect()->back();
     }
 }

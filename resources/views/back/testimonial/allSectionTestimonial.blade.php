@@ -26,11 +26,14 @@
 
     <div class="d-flex justify-content-center">
             <a href="{{route('testimonials.edit',$testimonial->id)}}" class="btn btn-warning me-3 mb-3"><i class="fas fa-edit"></i></a>
+            
+            @can('user_editeur')
             <form action="{{route('testimonials.destroy',$testimonial->id)}}" method="post">
-            @csrf
-            @method('DELETE')
+              @csrf
+              @method('DELETE')
             <button type="submit" class="btn btn-danger  "><i class="fas fa-trash-alt"></i></button>
             </form>
+            @endcan
     </div>
   </div>
 </div>
